@@ -1,0 +1,26 @@
+spring.datasource.url: jdbc:h2:file:./standardbankchallenge
+spring.h2.console:
+  enabled: true
+  path: /h2-console
+
+
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/master.xml
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Iv1.6100a9664edb1fef
+            clientSecret: 3772e11c4785c11fe149cd66955ecb48c46fc000
+server:
+  port: 8999
+
+  # Specify the path of the OpenAPI documentation
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
