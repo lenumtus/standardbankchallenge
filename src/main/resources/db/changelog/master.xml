@@ -8,9 +8,9 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
     <property name="uuid_type" value="uuid" dbms="h2"/>
     <property name="uuid_function" value="random_uuid()" dbms="h2"/>
 
-    <include file="./db/changelog/initial_database.xml" relativeToChangelogFile="false"/>
-    <include file="./db/changelog/initial_constrainsts.xml" relativeToChangelogFile="false"/>
-    <include file="./db/changelog/initial_seed.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/initial_database.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/initial_constrainsts.xml" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/initial_seed.xml" relativeToChangelogFile="false"/>
 
 
 </databaseChangeLog>
