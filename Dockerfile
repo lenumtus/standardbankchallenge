@@ -8,16 +8,12 @@
 #WORKDIR /app
 #COPY --from=MAVEN_BUILD /build/target/standardbankchallenge-0.0.1.jar /app/standardbankchallenge.jar
 #ENTRYPOINT ["java", "-jar", "standardbankchallenge.jar"]
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM openjdk:11
+
 EXPOSE 8080
-# Refer to Maven build -> finalName
-ARG JAR_FILE=target/standardbankchallenge-0.0.1.jar
 
-# cd /opt/app
-WORKDIR /opt/app
+WORKDIR /applications
 
-# cp target/spring-boot-web.jar /opt/app/app.jar
-COPY ${JAR_FILE} app.jar
+COPY target/standardbankchallenge-0.0.1.jar /applications/standardbankchallenge.jar
 
-# java -jar /opt/app/app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar", "standardbankchallenge.jar"]
