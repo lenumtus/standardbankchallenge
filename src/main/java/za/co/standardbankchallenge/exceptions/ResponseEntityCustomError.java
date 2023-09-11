@@ -18,9 +18,6 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class ResponseEntityCustomError extends ResponseEntityExceptionHandler {
 
-
-    // error handle for @Valid
-    //@ExceptionHandler(ConstraintViolationException.class)
     protected ResponseEntity<Object>
     handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                  HttpHeaders headers,
@@ -36,23 +33,7 @@ public class ResponseEntityCustomError extends ResponseEntityExceptionHandler {
 
     }
 
-//  error handle for Not found
-//    @ExceptionHandler(NotFoundException.class)
-//    protected ResponseEntity<Object>handleNoHandlerFoundException(
-//            NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-//        List<String> errors = new ArrayList<>();
-//        errors.add(ex.getMessage());
-//        return new ResponseEntity<>(new CustomExceptionResponse(status.value(), errors, false), headers, status);
-//
-//    }
-//    @ExceptionHandler(NotFoundException.class)
-//  	public final ResponseEntity<CustomExceptionResponse> handleNoHandlerFoundException(Exception ex, WebRequest request) {
-//    	
-//        List<String> errors = new ArrayList<String>();       
-//        errors.add(ex.getMessage());
-//        CustomExceptionResponse errorDetails = new CustomExceptionResponse(404,errors ,false);
-//  		  return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-//  		}
+
 
     @ExceptionHandler(ItemNotFoundException.class)
     public final ResponseEntity<CustomExceptionResponse> handleItemNotFoundException(Exception ex, WebRequest request) {
@@ -63,16 +44,8 @@ public class ResponseEntityCustomError extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
-//    @ExceptionHandler(AuthenticationException.class)
-//    public final ResponseEntity<CustomExceptionResponse> handle401Exceptions(Exception ex, WebRequest request) {
-//
-//        List<String> errors = new ArrayList<String>();
-//        errors.add(ex.getMessage());
-//        CustomExceptionResponse errorDetails = new CustomExceptionResponse(errors, false);
-//        return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
-//    }
 
-    //@ExceptionHandler(Exception.class)
+    @ExceptionHandler(Exception.class)
     public final ResponseEntity<CustomExceptionResponse> handleAllExceptions(Exception ex, WebRequest request) {
 
         List<String> errors = new ArrayList<String>();

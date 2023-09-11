@@ -10,12 +10,43 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <!--           Insert bookEntity            -->
         <insert tableName="book_table">
 
-            <column name="isbn" value="12345" />
+            <column name="isbn" value="9783660883435" />
             <column name="title" value="55 words to succeed"/>
             <column name="description" value="This bookEntity is about life"/>
             <column name="author" value="simon peter"/>
         </insert>
 
+        <insert tableName="book_table">
+
+            <column name="isbn" value="9787248559095" />
+            <column name="title" value="The success of life"/>
+            <column name="description" value="This book is about success of life "/>
+            <column name="author" value="Daniel john"/>
+        </insert>
+
+        <insert tableName="book_table">
+
+            <column name="isbn" value="9782577747274" />
+            <column name="title" value="The darkness of Johannesburg"/>
+            <column name="description" value="The darkness of Johannesburg"/>
+            <column name="author" value="Oliver khan"/>
+        </insert>
+
+        <insert tableName="book_table">
+
+            <column name="isbn" value="9782130488781" />
+            <column name="title" value="The Race of the lion"/>
+            <column name="description" value="The Race of the lion"/>
+            <column name="author" value="Didier Drogba"/>
+        </insert>
+
+        <insert tableName="book_table">
+
+            <column name="isbn" value="9789167850536" />
+            <column name="title" value="The value of poverty"/>
+            <column name="description" value="The Book describes the value of poverty"/>
+            <column name="author" value="Khamaru Tyu"/>
+        </insert>
 
 
     </changeSet></databaseChangeLog>

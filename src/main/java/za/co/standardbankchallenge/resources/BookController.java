@@ -19,7 +19,7 @@ public class BookController extends BaseController{
      @Autowired
     IBookService bookService;
     @GetMapping("all")
-    public ResponseEntity<?> getAllTheBooks(Principal principal){
+    public ResponseEntity<?> getAllTheBooks(){
 
 
         return this.generateReturnResult(new CustomResult<>(bookService.getAllBooks() , HttpStatus.OK, true));

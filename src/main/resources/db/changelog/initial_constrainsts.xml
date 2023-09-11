@@ -5,8 +5,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
 http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-    <!--    <property name="uuid_type" value="uuid" dbms="postgresql"/>-->
-    <!--    <property name="uuid_function" value="uuid.uuid_generate_v4()" dbms="postgresql"/>-->
+
 
 
 
