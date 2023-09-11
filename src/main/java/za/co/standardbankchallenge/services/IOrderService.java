@@ -7,5 +7,7 @@ import za.co.standardbankchallenge.api.response.CustomResult;
 public interface IOrderService {
 
     public CustomResult<?> addOrder(OrderRequest request);
+
+
     public CustomResult<?> getAllOrder(PageCriteria criteria);
 }
