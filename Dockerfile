@@ -9,7 +9,7 @@
 #COPY --from=MAVEN_BUILD /build/target/standardbankchallenge-0.0.1.jar /app/standardbankchallenge.jar
 #ENTRYPOINT ["java", "-jar", "standardbankchallenge.jar"]
 FROM adoptopenjdk/openjdk11:alpine-jre
-EXPOSE 8080
+EXPOSE 8999
 # Refer to Maven build -> finalName
 ARG JAR_FILE=target/standardbankchallenge-0.0.1.jar
 

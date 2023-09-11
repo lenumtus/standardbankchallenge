@@ -11,7 +11,7 @@ if [ "$(sudo docker ps -qa -f name=$CONTAINER_NAME)" ]; then
     fi
 fi
 echo "running new container ......... "
-sudo docker run -d --rm -p 8080:8080 --name $CONTAINER_NAME lenumtusdocker/standardbankchallenge:latest
+sudo docker run -d --rm -p 8999:8999 --name $CONTAINER_NAME lenumtusdocker/standardbankchallenge:latest
 
 exit
 ENDSSH
