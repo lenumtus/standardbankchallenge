@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh -i  ${SERVER_USER}@${SERVER_HOST} -i key.pem -t -t -o StrictHostKeyChecking=no << 'ENDSSH'
+ssh  ${SERVER_USER}@${SERVER_HOST} -i key.pem -t -t -o StrictHostKeyChecking=no << 'ENDSSH'
 docker pull lenumtusdocker/standardbankchallenge:latest
 
 CONTAINER_NAME=standardbankchallenge
