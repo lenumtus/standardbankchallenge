@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ssh  ${SERVER_USER}@${SERVER_HOST} -i key.pem -t -t -o StrictHostKeyChecking=no << 'ENDSSH'
-docker pull lenumtusdocker/standardbankchallenge:latest
+sudo docker pull lenumtusdocker/standardbankchallenge:latest
 
 CONTAINER_NAME=standardbankchallenge
 if [ "$(docker ps -qa -f name=$CONTAINER_NAME)" ]; then
@@ -11,7 +11,7 @@ if [ "$(docker ps -qa -f name=$CONTAINER_NAME)" ]; then
     fi
 fi
 
-docker run -d --rm -p 8089:8089 --name $CONTAINER_NAME lenumtusdocker/standardbankchallenge:latest
+sudo docker run -d --rm -p 8089:8089 --name $CONTAINER_NAME lenumtusdocker/standardbankchallenge:latest
 
 exit
 ENDSSH
