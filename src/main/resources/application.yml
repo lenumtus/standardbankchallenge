@@ -1,10 +1,23 @@
-spring.datasource.url: jdbc:h2:file:./standardbankchallenge
-spring.h2.console:
-  enabled: true
-  path: /h2-console
-
-
 spring:
+  datasource:
+    url: jdbc:h2:mem:standardbankchallenge
+    username: standardbankchallenge
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   liquibase:
     change-log: classpath:db/changelog/master.xml
   security:

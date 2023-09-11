@@ -5,12 +5,17 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
 http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-    <property name="uuid_type" value="uuid" dbms="h2"/>
-    <property name="uuid_function" value="random_uuid()" dbms="h2"/>
+    <changeSet id="initial_seedData" author="Simon">
 
-    <include file="./db/changelog/initial_database.xml" relativeToChangelogFile="false"/>
-    <include file="./db/changelog/initial_constrainsts.xml" relativeToChangelogFile="false"/>
-    <include file="./db/changelog/initial_seed.xml" relativeToChangelogFile="false"/>
+        <!--           Insert bookEntity            -->
+        <insert tableName="book_table">
+
+            <column name="isbn" value="12345" />
+            <column name="title" value="55 words to succeed"/>
+            <column name="description" value="This bookEntity is about life"/>
+            <column name="author" value="simon peter"/>
+        </insert>
 
 
-</databaseChangeLog>
+
+    </changeSet></databaseChangeLog>

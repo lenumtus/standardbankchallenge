@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+    <!--    <property name="uuid_type" value="uuid" dbms="postgresql"/>-->
+    <!--    <property name="uuid_function" value="uuid.uuid_generate_v4()" dbms="postgresql"/>-->
+    <changeSet author="simon" id="add_uuid-ossp">
+        <sql dbms="postgresql"
+             endDelimiter=";">
+            CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+            <comment>Add uuid-ossp for use in icase</comment>
+        </sql>
+    </changeSet>
+    <changeSet id="inital_databse" author="Simon">
+
+
+
+
+
+
+        <!--  Book    -->
+
+        <createTable tableName="book_table">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" primaryKeyName="product_id_pk" />
+            </column>
+            <column name="isbn" type="varchar(250)">
+                <constraints unique="true" uniqueConstraintName="isbn_unique" />
+            </column>
+            <column name="title" type="varchar(250)">
+                <constraints unique="true" uniqueConstraintName="product_title_uk" />
+            </column>
+            <column name="description" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="author" type="varchar(250)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="true"/>
+            </column>
+            <column name="update_date" type="datetime" >
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!--  Order    -->
+
+        <createTable tableName="order_table">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" primaryKeyName="order_id_pk" />
+            </column>
+            <column name="book_id" type="${uuid_type}" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="double" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="int4" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(250)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="true"/>
+            </column>
+            <column name="update_date" type="datetime" >
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+
+    </changeSet>
+
+
+
+
+
+</databaseChangeLog>
