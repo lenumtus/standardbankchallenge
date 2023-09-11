@@ -19,7 +19,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   liquibase:
-    change-log: /changelog/master.xml
+    change-log: /db/changelog/master.xml
   security:
     oauth2:
       client:
